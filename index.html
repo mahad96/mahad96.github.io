@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahad Khan Resume</title>
+    <title>Mahad Khan Personal Wesbite</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Karla:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='50' dominant-baseline='central' text-anchor='middle' font-size='40' font-weight='bold' font-family='Poppins, sans-serif' fill='%23d90429'%3E%26lt;%2FMK%26gt;%3C/text%3E%3C/svg%3E">
     <!-- Chosen Palette: Crimson & Charcoal -->
     <!-- Application Structure Plan: An engaging, asymmetrical single-page design that uses a bold, high-contrast aesthetic to make a strong visual statement. The layout alternates content alignment (left, right, center) to create a dynamic flow that guides the user's eye down the page. Large, impactful typography for headers and a vibrant accent color for interactive elements create a memorable experience. This structure is chosen for its ability to stand out in a creative and confident manner, ideal for roles where personality and modern design sense are valued. -->
     <!-- Visualization & Content Choices:
@@ -73,61 +74,42 @@
 
         .theme-toggle-button { background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); }
 
-        .coin-container { perspective: 1000px; }
-        .coin { width: 192px; height: 192px; position: relative; transform-style: preserve-3d; transition: transform 0.6s; }
-        .coin.is-flipped { transform: rotateY(180deg); }
-        .coin-face {
-            position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; font-size: 4.5rem;
-            color: var(--text-main); background-color: var(--bg-card); border: 3px solid var(--border-color);
-            overflow: hidden;
+        .game-canvas {
+            background-color: var(--bg-card);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+            width: 100%;
+            height: auto;
         }
-        .coin-face img { width: 100%; height: 100%; object-fit: cover; }
-        .coin-back { transform: rotateY(180deg); }
-
-        .has-backdrop::before {
-            content: ''; position: absolute; width: 100%; height: 100%; border-radius: 50%;
-            background-color: var(--border-color); transform: scale(1.1); z-index: -1;
-            opacity: 0.5; animation: backdrop-pulse 5s infinite ease-in-out;
+        .game-nav-button {
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            transition: background-color 0.2s, color 0.2s;
         }
-
-        @keyframes backdrop-pulse {
-            0%, 100% { transform: scale(1.1); opacity: 0.5; }
-            50% { transform: scale(1.15); opacity: 0.7; }
+        .game-nav-button:hover {
+            background-color: var(--accent);
+            color: #fff;
         }
 
-        @keyframes computer-glow {
-            0%, 100% { filter: drop-shadow(0 0 5px var(--accent)); }
-            50% { filter: drop-shadow(0 0 15px var(--accent)); }
+        @media (max-width: 767px) {
+            #timeline .relative { padding-left: 1.5rem; }
+            .timeline-item-container::before { left: 0; transform: translateX(0); }
+            .timeline-item-container, .timeline-item-container:nth-child(odd) {
+                justify-content: flex-start;
+                padding-left: 2rem;
+            }
+            .timeline-item { width: 100%; }
+            .timeline-dot { left: 0; transform: translateX(-50%); }
         }
-        .animate-computer { animation: computer-glow 2.5s infinite ease-in-out; }
-
-        @keyframes golf-swing {
-            0%, 100% { transform: rotate(-5deg); }
-            50% { transform: rotate(10deg); }
-        }
-        .animate-golf { animation: golf-swing 2s infinite ease-in-out; }
-
-        .animate-coffee { animation: coffee-wobble-wrapper 2s infinite linear; }
-        .coffee-cup { position: relative; width: 60px; height: 50px; border: 4px solid var(--text-main); border-top: none; border-radius: 0 0 20px 20px; }
-        .coffee-cup::after { content: ''; position: absolute; top: 8px; right: -20px; width: 12px; height: 25px; border: 4px solid var(--text-main); border-radius: 0 12px 12px 0; }
-        .coffee-cup::before { content: ''; position: absolute; top: -15px; left: 25px; width: 4px; height: 12px; background-color: var(--text-main); border-radius: 2px; opacity: 0; animation: steam-rise 2s infinite linear; box-shadow: 8px 4px 0 0 var(--text-main), 16px -4px 0 0 var(--text-main); }
-        @keyframes coffee-wobble-wrapper { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-3deg); } 75% { transform: rotate(3deg); } }
-        @keyframes steam-rise { 0% { opacity: 0; transform: translateY(0); } 20%, 80% { opacity: 0.8; } 100% { opacity: 0; transform: translateY(-20px); } }
-
-
-        @keyframes cycle-move {
-            0%, 100% { transform: translateX(-10px); }
-            50% { transform: translateX(10px); }
-        }
-        .animate-cycling { animation: cycle-move 4s infinite linear; }
 
     </style>
 </head>
 <body class="antialiased bg-primary text-main">
 <header class="absolute top-0 left-0 right-0 z-50 p-6">
     <div class="container mx-auto flex justify-between items-center">
-        <h1 class="text-2xl display-font">MK</h1>
+        <h1 class="text-2xl display-font">&lt;/MK&gt;</h1>
         <div class="flex items-center space-x-4">
             <a href="mailto:mahadhasankhan@gmail.com" class="font-medium hover:accent-text transition-colors">Contact Me</a>
             <button id="theme-toggle" class="theme-toggle-button w-10 h-10 rounded-full text-lg flex items-center justify-center">
@@ -140,14 +122,9 @@
 <main>
     <section id="summary" class="min-h-screen flex flex-col items-center justify-center text-center bg-secondary px-6">
         <div class="flex-grow flex flex-col items-center justify-center">
-            <div class="coin-container mb-6">
-                <div id="hobby-coin" class="coin">
-                    <div id="hobby-coin-front" class="coin-face coin-front"></div>
-                    <div id="hobby-coin-back" class="coin-face coin-back"></div>
-                </div>
-            </div>
+            <img src="https://github.com/mahad96.png" alt="Profile Picture" class="w-48 h-48 rounded-full mx-auto mb-6">
             <p class="text-lg text-secondary">Mahad Khan</p>
-            <h2 class="text-5xl md:text-7xl font-bold my-4">Senior Software Developer</h2>
+            <h2 class="text-4xl sm:text-5xl md:text-7xl font-bold my-4">Senior Software Developer</h2>
             <p class="max-w-3xl mx-auto text-lg text-secondary">
                 I build scalable, serverless applications on <span class="accent-text font-bold">AWS</span> and specialize in <span class="accent-text font-bold">Domain-Driven Design</span>.
             </p>
@@ -158,19 +135,19 @@
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                 <div class="bg-card p-8 rounded-lg transform hover:scale-105 hover:-translate-y-2 transition-transform">
-                    <div class="text-6xl font-bold accent-text display-font">1.4k+</div>
+                    <div class="text-5xl md:text-6xl font-bold accent-text display-font">1.4k+</div>
                     <p class="text-secondary mt-2">Jira Tickets Resolved</p>
                 </div>
                 <div class="bg-card p-8 rounded-lg transform hover:scale-105 hover:-translate-y-2 transition-transform">
-                    <div class="text-6xl font-bold accent-text display-font">110+</div>
+                    <div class="text-5xl md:text-6xl font-bold accent-text display-font">110+</div>
                     <p class="text-secondary mt-2">Lambda Functions</p>
                 </div>
                 <div class="bg-card p-8 rounded-lg transform hover:scale-105 hover:-translate-y-2 transition-transform">
-                    <div class="text-6xl font-bold accent-text display-font">30%</div>
+                    <div class="text-5xl md:text-6xl font-bold accent-text display-font">30%</div>
                     <p class="text-secondary mt-2">Cost Reduction</p>
                 </div>
                 <div class="bg-card p-8 rounded-lg transform hover:scale-105 hover:-translate-y-2 transition-transform">
-                    <div class="text-6xl font-bold accent-text display-font">20+</div>
+                    <div class="text-5xl md:text-6xl font-bold accent-text display-font">20+</div>
                     <p class="text-secondary mt-2">ADRs Authored</p>
                 </div>
             </div>
@@ -180,7 +157,7 @@
     <section id="timeline" class="py-20 px-6">
         <div class="container mx-auto">
             <div class="text-center mb-16">
-                <h3 class="text-4xl font-bold">Experience</h3>
+                <h3 class="text-3xl md:text-4xl font-bold">Experience</h3>
             </div>
             <div class="relative" id="timeline-container">
             </div>
@@ -190,7 +167,7 @@
     <section id="skills" class="py-20 px-6 bg-secondary">
         <div class="container mx-auto">
             <div class="text-center mb-12">
-                <h3 class="text-4xl font-bold">Core Competencies</h3>
+                <h3 class="text-3xl md:text-4xl font-bold">Core Competencies</h3>
             </div>
             <div class="bg-card p-6 rounded-lg">
                 <div class="chart-container">
@@ -202,32 +179,66 @@
 
     <section id="about" class="py-20 px-6">
         <div class="container mx-auto text-center">
-            <h3 class="text-4xl font-bold mb-10">More Info</h3>
+            <h3 class="text-3xl md:text-4xl font-bold mb-10">More Info</h3>
             <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div class="bg-card p-6 rounded-lg">
-                    <h4 class="text-2xl font-bold mb-3 accent-text">Education</h4>
+                    <h4 class="text-xl md:text-2xl font-bold mb-3 accent-text">Education</h4>
                     <p><strong>McGill University</strong><br>BEng, Computer Engineering | 2020</p>
                 </div>
                 <div class="bg-card p-6 rounded-lg">
-                    <h4 class="text-2xl font-bold mb-3 accent-text">Certifications</h4>
+                    <h4 class="text-xl md:text-2xl font-bold mb-3 accent-text">Certifications</h4>
                     <p><a href="https://www.credly.com/badges/f80e1510-c5aa-443e-be4f-e9b18e606741/linked_in?t=rr3upy" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline">AWS Certified Solutions Architect – Associate</a></p>
                 </div>
                 <div class="bg-card p-6 rounded-lg col-span-1 md:col-span-2">
-                    <h4 class="text-2xl font-bold mb-3 accent-text">Publications</h4>
+                    <h4 class="text-xl md:text-2xl font-bold mb-3 accent-text">Publications</h4>
                     <p><a href="https://medium.com/ssense-tech/domain-driven-design-effective-domain-modeling-and-its-perks-e4e3e3e0d5ee" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline">Domain-Driven Design - Effective Domain Modeling and its Perks</a> | Medium</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <section id="hobbies" class="py-20 px-6 bg-secondary">
+        <div class="container mx-auto text-center">
+            <h3 class="text-3xl md:text-4xl font-bold mb-10">Hobbies</h3>
+            <div class="max-w-3xl mx-auto flex items-center justify-center space-x-4">
+                <button id="prev-game" class="game-nav-button rounded-full w-12 h-12 text-2xl flex-shrink-0">&lt;</button>
+                <div class="flex-grow min-w-0">
+                    <div class="bg-card p-4 sm:p-6 rounded-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 id="game-title" class="text-lg sm:text-2xl font-bold text-left"></h4>
+                                <p id="game-instructions" class="text-xs sm:text-sm text-secondary text-left"></p>
+                            </div>
+                            <p class="text-base sm:text-lg text-right">Score: <span id="game-score">0</span></p>
+                        </div>
+                        <div id="game-container" class="relative">
+                            <canvas id="coding-game" class="game-canvas"></canvas>
+                            <canvas id="golf-game" class="game-canvas hidden"></canvas>
+                            <canvas id="coffee-game" class="game-canvas hidden"></canvas>
+                            <canvas id="cycling-game" class="game-canvas hidden"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <button id="next-game" class="game-nav-button rounded-full w-12 h-12 text-2xl flex-shrink-0">&gt;</button>
+            </div>
+        </div>
+    </section>
+
 </main>
 
-<footer class="text-center py-10 bg-secondary">
+<footer class="text-center py-10 bg-primary">
     <h3 class="text-3xl font-bold">Let's Connect</h3>
     <p class="text-secondary mt-2 mb-6">Available for new opportunities.</p>
     <div class="flex justify-center space-x-6">
-        <a href="mailto:mahadhasankhan@gmail.com" class="font-medium hover:accent-text transition-colors">Email</a>
-        <a href="https://www.linkedin.com/in/mahad-khan" target="_blank" rel="noopener noreferrer" class="font-medium hover:accent-text transition-colors">LinkedIn</a>
-        <a href="https://github.com/mahad96" target="_blank" rel="noopener noreferrer" class="font-medium hover:accent-text transition-colors">GitHub</a>
+        <a href="mailto:mahadhasankhan@gmail.com" class="text-secondary hover:accent-text transition-colors" aria-label="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6ZM20 6L12 11L4 6H20ZM20 18H4V8L12 13L20 8V18Z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/mahad-khan" target="_blank" rel="noopener noreferrer" class="text-secondary hover:accent-text transition-colors" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <a href="https://github.com/mahad96" target="_blank" rel="noopener noreferrer" class="text-secondary hover:accent-text transition-colors" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
     </div>
 </footer>
 
@@ -374,8 +385,10 @@
 
         // Theme Toggle Logic
         const themeToggle = document.getElementById('theme-toggle');
+        let currentTheme = 'dark';
 
         const applyTheme = (theme) => {
+            currentTheme = theme;
             if (theme === 'light') {
                 document.body.classList.add('light-mode');
                 themeToggle.textContent = '🌙';
@@ -406,49 +419,473 @@
         const savedTheme = localStorage.getItem('theme') || 'dark';
         applyTheme(savedTheme);
 
-        // Hobby Coin Logic
-        const coin = document.getElementById('hobby-coin');
-        const frontFace = document.getElementById('hobby-coin-front');
-        const backFace = document.getElementById('hobby-coin-back');
+        // Games Logic
+        const gameTitleEl = document.getElementById('game-title');
+        const gameInstructionsEl = document.getElementById('game-instructions');
+        const gameScoreEl = document.getElementById('game-score');
+        const gameCanvases = {
+            coding: document.getElementById('coding-game'),
+            golf: document.getElementById('golf-game'),
+            coffee: document.getElementById('coffee-game'),
+            cycling: document.getElementById('cycling-game'),
+        };
 
-        const sequence = [
-            { value: 'MK', class: 'display-font has-backdrop' },
-            { value: '<img src="https://github.com/mahad96.png" alt="Profile Picture">', class: 'has-backdrop' },
-            { value: '💻', class: 'has-backdrop animate-computer' },
-            { value: '⛳️', class: 'has-backdrop animate-golf' },
-            { value: '<div class="coffee-cup"></div>', class: 'has-backdrop animate-coffee' },
-            { value: '🚴', class: 'has-backdrop animate-cycling' }
+        let activeGame = null;
+        let animationFrameId;
+
+        const games = [
+            { id: 'coding', title: 'Coding: Bug Squish', instructions: 'Click the green features, avoid the red bugs!', setup: setupCodingGame },
+            { id: 'golf', title: 'Golf: Putt Challenge', instructions: 'Click, drag away from the ball, and release to putt.', setup: setupGolfGame },
+            { id: 'coffee', title: 'Coffee: Perfect Brew', instructions: 'Click to stop the bar in the green zone.', setup: setupCoffeeGame },
+            { id: 'cycling', title: 'Cycling: Hurdle Jump', instructions: 'Click to jump over the obstacles.', setup: setupCyclingGame },
         ];
-        let currentIndex = 0;
-        let isAnimating = false;
+        let currentGameIndex = 0;
 
-        // Initialize the front face
-        frontFace.innerHTML = sequence[currentIndex].value;
-        frontFace.className = 'coin-face coin-front ' + (sequence[currentIndex].class || '');
+        function switchGame(index) {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
 
-        setInterval(() => {
-            if (isAnimating) return;
-            isAnimating = true;
+            Object.values(gameCanvases).forEach(canvas => canvas.classList.add('hidden'));
 
-            const isFlipped = coin.classList.contains('is-flipped');
-            const nextIndex = (currentIndex + 1) % sequence.length;
-            const nextItem = sequence[nextIndex];
-            const faceToUpdate = isFlipped ? frontFace : backFace;
+            currentGameIndex = (index + games.length) % games.length;
+            const game = games[currentGameIndex];
 
-            faceToUpdate.innerHTML = nextItem.value;
-            faceToUpdate.className = (isFlipped
-                ? 'coin-face coin-front '
-                : 'coin-face coin-back ') + (nextItem.class || '');
+            gameTitleEl.textContent = game.title;
+            gameInstructionsEl.textContent = game.instructions;
+            gameScoreEl.textContent = '0';
+            activeGame = game.id;
 
-            coin.classList.toggle('is-flipped');
-            currentIndex = nextIndex;
+            const canvas = gameCanvases[game.id];
+            const container = document.getElementById('game-container');
+            const containerWidth = container.clientWidth;
+            canvas.width = containerWidth;
+            canvas.height = containerWidth / 2;
 
-            setTimeout(() => {
-                isAnimating = false;
-            }, 600); // Transition duration
+            canvas.classList.remove('hidden');
+            game.setup(canvas, gameScoreEl);
+        }
 
-        }, 5000);
+        document.getElementById('next-game').addEventListener('click', () => switchGame(currentGameIndex + 1));
+        document.getElementById('prev-game').addEventListener('click', () => switchGame(currentGameIndex - 1));
+
+        function getThemeColors() {
+            const rootStyles = getComputedStyle(document.body);
+            return {
+                main: rootStyles.getPropertyValue('--text-main').trim(),
+                secondary: rootStyles.getPropertyValue('--text-secondary').trim(),
+                accent: rootStyles.getPropertyValue('--accent').trim(),
+                card: rootStyles.getPropertyValue('--bg-card').trim(),
+            };
+        }
+
+        // Game Implementations
+        function setupCodingGame(canvas, scoreEl) {
+            const ctx = canvas.getContext('2d');
+            let score = 0;
+            let targets = [];
+            let spawnTimer = 0;
+
+            function drawBackground() {
+                const theme = getThemeColors();
+                ctx.fillStyle = theme.card;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.strokeStyle = theme.secondary;
+                ctx.lineWidth = 10;
+                ctx.strokeRect(0, 0, canvas.width, canvas.height);
+                ctx.lineWidth = 1;
+            }
+
+            function draw() {
+                drawBackground();
+                targets.forEach(target => {
+                    ctx.beginPath();
+                    ctx.arc(target.x, target.y, target.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = target.type === 'bug' ? getThemeColors().accent : 'green';
+                    ctx.fill();
+                    ctx.closePath();
+                });
+            }
+
+            function update() {
+                spawnTimer++;
+                if (spawnTimer > 60) {
+                    spawnTimer = 0;
+                    const type = Math.random() > 0.3 ? 'feature' : 'bug';
+                    targets.push({
+                        x: Math.random() * (canvas.width - 60) + 30,
+                        y: Math.random() * (canvas.height - 60) + 30,
+                        radius: canvas.width / 50,
+                        type: type,
+                    });
+                }
+                if (targets.length > 10) targets.shift();
+            }
+
+            function gameLoop() {
+                update();
+                draw();
+                animationFrameId = requestAnimationFrame(gameLoop);
+            }
+
+            canvas.onclick = (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                for(let i = targets.length - 1; i >= 0; i--) {
+                    const target = targets[i];
+                    const dist = Math.hypot(x - target.x, y - target.y);
+                    if (dist < target.radius) {
+                        if (target.type === 'feature') score++;
+                        else score = Math.max(0, score - 1);
+                        scoreEl.textContent = score;
+                        targets.splice(i, 1);
+                        break;
+                    }
+                }
+            };
+
+            gameLoop();
+        }
+
+        function setupGolfGame(canvas, scoreEl) {
+            const ctx = canvas.getContext('2d');
+            let score = 0;
+            let ball, hole;
+            let isAiming = false;
+            let aimStart = {};
+
+            function resetBall() {
+                ball = { x: canvas.width * 0.1, y: canvas.height / 2, vx: 0, vy: 0, radius: canvas.width / 80 };
+                hole = { x: canvas.width * 0.9, y: canvas.height / 2, radius: canvas.width / 60 };
+            }
+
+            function drawBackground() {
+                ctx.fillStyle = '#228B22'; // Putting green color
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+
+            function draw() {
+                drawBackground();
+                // Hole
+                ctx.beginPath();
+                ctx.arc(hole.x, hole.y, hole.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'black';
+                ctx.fill();
+                ctx.closePath();
+                // Flag
+                ctx.strokeStyle = 'white';
+                ctx.beginPath();
+                ctx.moveTo(hole.x, hole.y);
+                ctx.lineTo(hole.x, hole.y - 50);
+                ctx.stroke();
+                ctx.fillStyle = getThemeColors().accent;
+                ctx.beginPath();
+                ctx.moveTo(hole.x, hole.y - 50);
+                ctx.lineTo(hole.x - 20, hole.y - 40);
+                ctx.lineTo(hole.x, hole.y - 30);
+                ctx.fill();
+                // Ball
+                ctx.beginPath();
+                ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'white';
+                ctx.fill();
+                ctx.closePath();
+                // Aim line
+                if (isAiming) {
+                    ctx.beginPath();
+                    ctx.moveTo(aimStart.x, aimStart.y);
+                    ctx.lineTo(aimStart.endX, aimStart.endY);
+                    ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+                    ctx.stroke();
+                    ctx.closePath();
+                }
+            }
+
+            function update() {
+                ball.x += ball.vx;
+                ball.y += ball.vy;
+                ball.vx *= 0.98;
+                ball.vy *= 0.98;
+
+                const dist = Math.hypot(ball.x - hole.x, ball.y - hole.y);
+                if (dist < hole.radius && Math.hypot(ball.vx, ball.vy) < 1) {
+                    score++;
+                    scoreEl.textContent = score;
+                    resetBall();
+                }
+                if(ball.x > canvas.width || ball.x < 0 || ball.y > canvas.height || ball.y < 0) {
+                    resetBall();
+                }
+            }
+
+            function gameLoop() {
+                update();
+                draw();
+                animationFrameId = requestAnimationFrame(gameLoop);
+            }
+
+            canvas.onmousedown = (e) => {
+                const rect = canvas.getBoundingClientRect();
+                isAiming = true;
+                aimStart = { x: ball.x, y: ball.y, endX: e.clientX - rect.left, endY: e.clientY - rect.top };
+            };
+            canvas.onmousemove = (e) => {
+                if (isAiming) {
+                    const rect = canvas.getBoundingClientRect();
+                    aimStart.endX = e.clientX - rect.left;
+                    aimStart.endY = e.clientY - rect.top;
+                }
+            };
+            canvas.onmouseup = (e) => {
+                if (isAiming) {
+                    isAiming = false;
+                    ball.vx = (aimStart.x - aimStart.endX) / 10;
+                    ball.vy = (aimStart.y - aimStart.endY) / 10;
+                }
+            };
+            resetBall();
+            gameLoop();
+        }
+
+        function setupCoffeeGame(canvas, scoreEl) {
+            const ctx = canvas.getContext('2d');
+            let score = 0;
+            let meter, targetZone, direction, gameActive;
+
+            function resetGame() {
+                meter = { x: canvas.width / 2 - 25, y: canvas.height - 50, width: 50, height: 0 };
+                targetZone = { y: 100, height: 30 };
+                direction = 2; // Slower speed
+                gameActive = true;
+                if(animationFrameId) cancelAnimationFrame(animationFrameId);
+                gameLoop();
+            }
+
+            function drawBackground(){
+                const theme = getThemeColors();
+                ctx.fillStyle = theme.card;
+                ctx.fillRect(0,0,canvas.width, canvas.height);
+                // Pot
+                ctx.strokeStyle = theme.main;
+                ctx.lineWidth = 4;
+                ctx.beginPath();
+                ctx.moveTo(canvas.width / 2 - 100, 50);
+                ctx.lineTo(canvas.width / 2 - 100, canvas.height - 50);
+                ctx.quadraticCurveTo(canvas.width / 2, canvas.height, canvas.width / 2 + 100, canvas.height - 50);
+                ctx.lineTo(canvas.width / 2 + 100, 50);
+                ctx.stroke();
+                // Handle
+                ctx.beginPath();
+                ctx.moveTo(canvas.width / 2 + 100, 100);
+                ctx.quadraticCurveTo(canvas.width/2 + 150, canvas.height/2, canvas.width/2 + 100, canvas.height - 100);
+                ctx.stroke();
+            }
+
+            function draw() {
+                drawBackground();
+                // Target zone
+                ctx.fillStyle = 'rgba(0, 255, 0, 0.3)';
+                ctx.fillRect(meter.x, targetZone.y, meter.width, targetZone.height);
+                // Moving coffee level
+                ctx.fillStyle = '#6f4e37'; // Coffee color
+                ctx.fillRect(meter.x, meter.y - meter.height, meter.width, meter.height);
+
+                if (!gameActive) {
+                    ctx.fillStyle = getThemeColors().main;
+                    ctx.font = '30px Poppins';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('Click to Brew Again', canvas.width / 2, 40);
+                }
+            }
+
+            function update() {
+                meter.height += direction;
+                if (meter.height >= canvas.height - 100 || meter.height <= 0) {
+                    direction *= -1;
+                }
+            }
+
+            function gameLoop() {
+                if(!gameActive) return;
+                update();
+                draw();
+                animationFrameId = requestAnimationFrame(gameLoop);
+            }
+
+            canvas.onclick = () => {
+                if (!gameActive) {
+                    resetGame();
+                    return;
+                }
+
+                gameActive = false;
+                const barTop = meter.y - meter.height;
+
+                if (barTop > targetZone.y && barTop < targetZone.y + targetZone.height) {
+                    score++;
+                } else {
+                    score = Math.max(0, score - 1);
+                }
+                scoreEl.textContent = score;
+                draw();
+            };
+
+            resetGame();
+        }
+
+        function setupCyclingGame(canvas, scoreEl) {
+            const ctx = canvas.getContext('2d');
+            let score = 0;
+            let cyclist, gravity, obstacles, frame, gameOver, roadLines;
+            const baseSpeed = canvas.width / 160;
+
+            function resetGame() {
+                cyclist = { x: canvas.width * 0.1, y: canvas.height - 50, width: canvas.width / 13, height: canvas.height / 10, vy: 0, onGround: true };
+                gravity = 0.8;
+                obstacles = [];
+                roadLines = [];
+                frame = 0;
+                gameOver = false;
+                score = 0;
+                scoreEl.textContent = 0;
+                if(animationFrameId) cancelAnimationFrame(animationFrameId);
+                gameLoop();
+            }
+
+            function drawBackground() {
+                ctx.fillStyle = '#87CEEB'; // Sky blue
+                ctx.fillRect(0,0, canvas.width, canvas.height - 50);
+                ctx.fillStyle = 'grey'; // Road
+                ctx.fillRect(0, canvas.height - 50, canvas.width, 50);
+
+                roadLines.forEach(line => {
+                    ctx.fillStyle = 'white';
+                    ctx.fillRect(line.x, canvas.height - 25, line.width, 5);
+                });
+            }
+
+            function drawCyclist(x, y, width, height, theme) {
+                const wheelRadius = height * 0.3;
+                const wheelY = y - wheelRadius;
+                const backWheelX = x + wheelRadius;
+                const frontWheelX = x + width - wheelRadius;
+
+                ctx.strokeStyle = theme.main;
+                ctx.lineWidth = 3;
+
+                ctx.beginPath();
+                ctx.arc(backWheelX, wheelY, wheelRadius, 0, Math.PI * 2);
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.arc(frontWheelX, wheelY, wheelRadius, 0, Math.PI * 2);
+                ctx.stroke();
+
+                const seatPostY = y - height;
+                const handleBarY = y - height + 5;
+                const pedalCenterY = y - wheelRadius;
+
+                ctx.beginPath();
+                ctx.moveTo(backWheelX, wheelY);
+                ctx.lineTo(backWheelX + (width*0.25), seatPostY);
+                ctx.lineTo(frontWheelX - (width*0.25), handleBarY);
+                ctx.lineTo(frontWheelX, wheelY);
+                ctx.moveTo(backWheelX + (width*0.25), seatPostY);
+                ctx.lineTo( (backWheelX + frontWheelX) / 2, pedalCenterY);
+                ctx.lineTo(backWheelX, wheelY);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(backWheelX + (width*0.15), seatPostY);
+                ctx.lineTo(backWheelX + (width*0.35), seatPostY);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(frontWheelX - (width*0.3), handleBarY - 5);
+                ctx.lineTo(frontWheelX - (width*0.15), handleBarY + 5);
+                ctx.stroke();
+            }
+
+            function draw() {
+                drawBackground();
+                drawCyclist(cyclist.x, cyclist.y, cyclist.width, cyclist.height, getThemeColors());
+                obstacles.forEach(obs => {
+                    ctx.fillStyle = getThemeColors().accent;
+                    ctx.fillRect(obs.x, obs.y - obs.height, obs.width, obs.height);
+                });
+                if (gameOver) {
+                    ctx.fillStyle = getThemeColors().main;
+                    ctx.font = `bold ${canvas.width/20}px Poppins`;
+                    ctx.textAlign = 'center';
+                    ctx.fillText('Game Over! Click to Restart', canvas.width / 2, canvas.height / 2);
+                }
+            }
+
+            function update() {
+                if (gameOver) return;
+                if (!cyclist.onGround) {
+                    cyclist.vy += gravity;
+                    cyclist.y += cyclist.vy;
+                    if (cyclist.y >= canvas.height - 50) {
+                        cyclist.y = canvas.height - 50;
+                        cyclist.onGround = true;
+                        cyclist.vy = 0;
+                    }
+                }
+                frame++;
+                if (frame % 100 === 0) {
+                    obstacles.push({ x: canvas.width, y: canvas.height - 50, width: canvas.width/40, height: canvas.height/13 });
+                }
+                obstacles.forEach((obs, index) => {
+                    obs.x -= baseSpeed;
+                    if (obs.x + obs.width < 0) {
+                        obstacles.splice(index, 1);
+                        score++;
+                        scoreEl.textContent = score;
+                    }
+                    const cyclistTop = cyclist.y - cyclist.height;
+                    const cyclistBottom = cyclist.y;
+                    const cyclistLeft = cyclist.x;
+                    const cyclistRight = cyclist.x + cyclist.width;
+                    const obsTop = obs.y - obs.height;
+                    const obsBottom = obs.y;
+                    const obsLeft = obs.x;
+                    const obsRight = obs.x + obs.width;
+
+                    if (cyclistRight > obsLeft && cyclistLeft < obsRight && cyclistBottom > obsTop && cyclistTop < obsBottom) {
+                        gameOver = true;
+                        cancelAnimationFrame(animationFrameId);
+                        draw();
+                    }
+                });
+                if (frame % 30 === 0) { roadLines.push({x: canvas.width, width: canvas.width/20}); }
+                roadLines.forEach((line, index) => {
+                    line.x -= baseSpeed;
+                    if(line.x + line.width < 0) { roadLines.splice(index, 1); }
+                });
+            }
+
+            function gameLoop() {
+                update();
+                draw();
+                if (!gameOver) { animationFrameId = requestAnimationFrame(gameLoop); }
+            }
+
+            canvas.onclick = () => {
+                if (gameOver) {
+                    resetGame();
+                } else if (cyclist.onGround) {
+                    cyclist.onGround = false;
+                    cyclist.vy = - (canvas.height / 26);
+                }
+            };
+
+            resetGame();
+        }
+
+        // Initialize the first game
+        switchGame(0);
     });
 </script>
 </body>
 </html>
+
