@@ -15,7 +15,6 @@
         - Technical Skills -> Viz: Radar Chart. -> Interaction: Hover over points to see skill names and proficiency values. -> Justification: A radar chart is a more visually unique and compelling way to represent multifaceted skill sets compared to a standard bar chart, fitting the "bold and dynamic" theme.
         - Key Achievements -> Viz: Large, number-focused cards with minimal text and a strong background color. -> Interaction: A subtle "lift" effect on hover. -> Justification: Immediately communicates impact through bold typography and color, making the numbers the hero.
     -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         :root {
             --text-main: #f0f0f0;
@@ -93,6 +92,16 @@
             color: #fff;
         }
 
+        .company-logo {
+            height: 1.5rem;
+            width: auto;
+            margin-bottom: 0.75rem;
+        }
+
+        body:not(.light-mode) .logo-invert {
+            filter: invert(1);
+        }
+
         @media (max-width: 767px) {
             #timeline .relative { padding-left: 1.5rem; }
             .timeline-item-container::before { left: 0; transform: translateX(0); }
@@ -124,7 +133,7 @@
         <div class="flex-grow flex flex-col items-center justify-center">
             <img src="https://github.com/mahad96.png" alt="Profile Picture" class="w-48 h-48 rounded-full mx-auto mb-6">
             <p class="text-3xl md:text-4xl font-bold text-secondary">Mahad Khan</p>
-            <h2 class="text-4xl sm:text-5xl md:text-7xl font-bold my-4">Senior Software Developer</h2>
+            <h2 class="text-4xl sm:text-5xl md:text-7xl font-bold my-4">Senior Software Developer - Lead</h2>
             <p class="max-w-3xl mx-auto text-lg text-secondary">
                 I build scalable, serverless applications on <span class="accent-text font-bold">AWS</span> and specialize in <span class="accent-text font-bold">Domain-Driven Design</span>.
             </p>
@@ -247,9 +256,27 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        const companyLogos = {
+            "SSENSE": {
+                "src": "assets/logos/ssense.svg",
+                "url": "https://www.ssense.com"
+            },
+            "The Montreal Neurological Institute": {
+                "src": "assets/logos/mni.png",
+                "url": "https://www.mcgill.ca/neuro/"
+            },
+            "IBM": {
+                "src": "assets/logos/ibm.svg",
+                "url": "https://www.ibm.com"
+            },
+            "Cisco": {
+                "src": "assets/logos/cisco.svg",
+                "url": "https://www.cisco.com"
+            }
+        };
         const experienceData = [
             {
-                role: "Senior Software Developer",
+                role: "Senior Software Developer - Lead",
                 company: "SSENSE",
                 period: "2023 - Present",
                 summaryDetails: ["Led WMS launch impacting $500M+ in orders.", "Improved inventory accuracy by 15%.", "Authored 20+ ADRs shaping tech direction."],
@@ -307,11 +334,23 @@
             const dot = document.createElement('div');
             dot.className = 'timeline-dot';
 
+            const logoClass = job.company === 'SSENSE' ? 'logo-invert' : '';
+            const companyInfo = companyLogos[job.company];
+            let logoHtml = `<p class="text-sm text-secondary">${job.company}</p>`;
+            if (companyInfo && companyInfo.src) {
+                const imgTag = `<img src="${companyInfo.src}" alt="${job.company} Logo" class="company-logo ${logoClass}">`;
+                if (companyInfo.url) {
+                    logoHtml = `<a href="${companyInfo.url}" target="_blank" rel="noopener noreferrer">${imgTag}</a>`;
+                } else {
+                    logoHtml = imgTag;
+                }
+            }
+
             const item = document.createElement('div');
             item.className = 'timeline-item';
             item.innerHTML = `
                     <div class="bg-card p-6 rounded-lg shadow-lg border-l-4 accent-border">
-                        <p class="text-sm text-secondary">${job.company}</p>
+                        ${logoHtml}
                         <h4 class="text-xl font-bold mt-1">${job.role}</h4>
                         <p class="text-sm accent-text font-semibold mb-3">${job.period}</p>
                         <ul class="text-secondary space-y-1 text-sm list-disc list-inside">
