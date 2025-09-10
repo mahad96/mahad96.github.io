@@ -370,49 +370,56 @@
             {
                 role: "Senior Software Developer - Lead",
                 company: "SSENSE",
-                period: "March 2023 - Present",
+                period: "Mar 2023 - Present",
+                location: "Toronto, ON",
                 summaryDetails: ["Led WMS launch impacting $500M+ in orders.", "Improved inventory accuracy by 15%.", "Authored 20+ ADRs shaping tech direction."],
                 fullDetails: ["Orchestrated the zero-downtime, phased launch of a new Warehouse Management System, positively impacting over $500M in annual order fulfillment and hundreds of direct users.", "Spearheaded the design of critical features for the Inventory Management System, improving inventory accuracy by 15%.", "Authored and contributed to over 20 Architecture Decision Records (ADRs), shaping the technical direction of the product.", "Designed and modeled complex business processes using BPMNs with tools like Lucidchart, improving clarity and alignment between technical and business teams.", "Mentored junior developers, providing guidance on best practices for serverless development and Domain-Driven Design."]
             },
             {
                 role: "Software Developer 3",
                 company: "SSENSE",
-                period: "August 2021 - March 2023",
+                period: "Aug 2021 - Mar 2023",
+                location: "Toronto, ON",
                 summaryDetails: ["Deployed 100+ Lambda functions.", "Led team to reduce processing time by 40%.", "Cut ops costs by 30% with serverless migration."],
                 fullDetails: ["Developed, deployed and tested over 100 AWS Lambda functions and multiple APIs using TypeScript and the Serverless Framework for the WMS and the Product Measurement Tool.", "Led a 4-person developer team to successfully launch the Product Measurement Tool, reducing measurement processing time by 40%.", "Architected and implemented event-driven workflows using AWS Step Functions, SQS, and SNS to handle asynchronous processing of millions of events daily.", "Pioneered the migration of legacy services to a serverless architecture, slashing operational costs by 30% and boosting system scalability.", "Engineered comprehensive Datadog dashboards and proactive alarms, reducing Mean Time to Resolution (MTTR) for incidents by 25%."]
             },
             {
                 role: "Software Developer 2",
                 company: "SSENSE",
-                period: "Feb 2021 - July 2021",
+                period: "Feb 2021 - Jul 2021",
+                location: "Montreal, QC",
                 summaryDetails: ["Resolved over 500 Jira tickets.", "Increased deployment frequency by 20%.", "Initiated design for new $10M+ WMS project."],
                 fullDetails: ["Successfully resolved over 500 tickets, including a mix of new feature implementations, bug fixes, and performance enhancements.", "Gained deep expertise in AWS, contributing to projects that heavily utilized Lambda, S3, and DynamoDB, increasing deployment frequency by 20%.", "Initiated the analysis and design phase for the company's new $10M+ Warehouse Management System (WMS) project.", "Collaborated with cross-functional teams to deliver high-quality software in a fast-paced Agile environment."]
             },
             {
                 role: "Software Developer 1",
                 company: "SSENSE",
-                period: "June 2020 - Jan 2021",
+                period: "Jun 2020 - Jan 2021",
+                location: "Montreal, QC",
                 summaryDetails: ["Processed 5,000+ daily international shipments.", "Built foundational skills in Git, Jira, and Agile."],
                 fullDetails: ["Contributed to the Export Declaration project, delivering features that processed over 5,000 international shipments per day.", "Developed a solid foundation in software development best practices, including version control with Git, issue tracking with JIRA, and writing technical documentation.", "Contributed to a wide variety of tasks, including documentation, testing, and implementation of well-defined features."]
             },
             {
                 role: "Software Developer",
                 company: "The Montreal Neurological Institute",
-                period: "June 2019 - September 2019",
+                period: "Jun 2019 - Sept 2019",
+                location: "Montreal, QC",
                 summaryDetails: ["Launched e-learning platform for 50+ researchers.", "Improved platform stability by 30% with test suites."],
                 fullDetails: ["Engineered and launched a Moodle-based e-learning platform for electrophysiology software, serving 50+ researchers and students.", "Developed and maintained a comprehensive test suite, improving platform stability by 30% and reducing bug-related delays."]
             },
             {
                 role: "Cloud UI/UX Developer - Co-op",
                 company: "IBM",
-                period: "September 2018 - December 2018",
+                period: "Sept 2018 - Dec 2018",
+                location: "Ottawa, ON",
                 summaryDetails: ["Accelerated feature delivery by 15% with cloud-native apps.", "Built a PoC for emotion recognition with Watson APIs."],
                 fullDetails: ["Worked in a Scrum environment to build, maintain and customize a functional user end to end testing framework based on Node.js for the continuous integration testing of various microservices deployed on IBM Cloud.", "Created an NPM package hosted in an NPM registry to keep the common functions consistent and updated across all tests.", "Developed and deployed cloud-native applications on IBM Cloud using Node.js, contributing to a 15% faster feature delivery cycle.", "Integrated IBM Watson cognitive APIs to build and test a proof-of-concept emotion recognition application, demonstrating potential for 20% improvement in user engagement analytics."]
             },
             {
                 role: "Network Engineering Intern",
                 company: "Cisco",
-                period: "May 2017 - September 2017",
+                period: "May 2017 - Sept 2017",
+                location: "Toronto, ON",
                 summaryDetails: ["Maintained 99.9% network uptime for 1,000+ users.", "Improved team efficiency by 10% via documentation."],
                 fullDetails: ["Contributed to the maintenance of critical LAN/WAN network infrastructure supporting over 1,000 employees, helping maintain 99.9% network uptime.", "Authored technical documentation for network protocols and configurations, improving team efficiency by 10%."]
             }
@@ -444,7 +451,10 @@
                     <div class="bg-card p-6 rounded-lg shadow-lg border-l-4 accent-border">
                         ${logoHtml}
                         <h4 class="text-xl font-bold mt-1">${job.role}</h4>
-                        <p class="text-sm accent-text font-semibold mb-3">${job.period}</p>
+                        <div class="flex justify-between items-center text-sm mb-3">
+                            <span class="accent-text font-semibold">${job.period}</span>
+                            <span class="accent-text font-semibold">${job.location}</span>
+                        </div>
                         <ul class="text-secondary space-y-1 text-sm list-disc list-inside">
                            ${job.summaryDetails.map(detail => `<li>${detail}</li>`).join('')}
                         </ul>
