@@ -931,7 +931,7 @@
             const ctx = canvas.getContext('2d');
             let score = 0;
             let cyclist, gravity, obstacles, frame, gameOver, roadLines;
-            const baseSpeed = canvas.width / 200; // Slower speed
+            const baseSpeed = canvas.width / 150; // Slower speed
             const cyclistImage = new Image();
             let cyclistImageLoaded = false;
             cyclistImage.src = 'assets/images/profilePicture.jpeg';
@@ -941,7 +941,7 @@
 
             function resetGame() {
                 cyclist = { x: canvas.width * 0.1, y: canvas.height - 50, width: canvas.width / 13, height: canvas.height / 10, vy: 0, onGround: true };
-                gravity = 0.8;
+                gravity = 0.6;
                 obstacles = [];
                 roadLines = [];
                 frame = 0;
